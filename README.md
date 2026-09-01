@@ -4,13 +4,23 @@ A personal finance web dashboard prototype. Dark, mobile-first, and filled with 
 
 This draft is meant to feel like a real ledger, not a tutorial scaffold. It is not connected to anything live.
 
-## Live demo
+## Phone / GitHub Pages
 
-Phone-friendly static site (GitHub Pages):
+Intended URL (project site): **https://7nok.github.io/Argentarii/**
 
-**https://7nok.github.io/Argentarii/**
+This PR’s workflow builds a static export with `basePath` `/Argentarii` so CSS, JS, and routes work under that subpath. The source repo stays **private**.
 
-Sample data only. The source repo stays private; this is just the exported dashboard.
+GitHub Pages is **not enabled** on the repo yet (`has_pages: false`). This agent cannot turn it on (Pages API `403 Resource not accessible by integration`; deploy failed with `Failed to create deployment (status: 404) … Ensure GitHub Pages has been enabled: https://github.com/7nok/Argentarii/settings/pages`). Hitting the URL today returns GitHub’s “Site not found” 404.
+
+To publish without making `7nok/Argentarii` public:
+
+1. Open [Settings → Pages](https://github.com/7nok/Argentarii/settings/pages)
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**
+3. Re-run the **Deploy GitHub Pages** workflow on this branch (Actions tab), or push again
+
+Private-repo Pages requires GitHub Pro (or Team/Enterprise). If Settings → Pages is missing or refuses to enable on a private repo, that is a plan limit — leave the repo private.
+
+Until Pages is enabled, use local `npm run dev` or `npm run build:pages` (writes `out/`).
 
 ## Run locally
 
