@@ -4,6 +4,14 @@ A personal finance web dashboard prototype. Dark, mobile-first, and filled with 
 
 This draft is meant to feel like a real ledger, not a tutorial scaffold. It is not connected to anything live.
 
+## Live demo
+
+Phone-friendly static site (GitHub Pages):
+
+**https://7nok.github.io/Argentarii/**
+
+Sample data only. The source repo stays private; this is just the exported dashboard.
+
 ## Run locally
 
 ```bash
@@ -11,14 +19,15 @@ npm install
 npm run dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000).
+Then open [http://localhost:3000](http://localhost:3000). Local dev is served at `/` (no `/Argentarii` prefix).
 
-One-time production check:
+The GitHub Pages build is a static export with `basePath` `/Argentarii`. To reproduce that output:
 
 ```bash
-npm run build
-npm start
+npm run build:pages
 ```
+
+That writes HTML/CSS/JS to `out/`. There is no Node server in production.
 
 ## What’s in the draft
 
@@ -32,9 +41,10 @@ The UI labels the ledger as demo data. Names, last-fours, and amounts are fictio
 
 ## Stack
 
-- Next.js 16 (App Router) + React 19
+- Next.js 16 (App Router) + React 19, static export
 - TypeScript
 - Tailwind CSS 4
+- GitHub Pages via GitHub Actions (`.github/workflows/pages.yml`)
 
 No backend. All numbers live in `src/data/demo.ts`.
 

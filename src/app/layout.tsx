@@ -13,10 +13,13 @@ const fraunces = Fraunces({
   subsets: ["latin"],
 });
 
+const pages = process.env.GITHUB_PAGES === "true";
+const basePath = pages ? "/Argentarii" : "";
+
 export const metadata: Metadata = {
   title: "Argentarii",
   description: "A personal finance ledger prototype. Sample data only.",
-  icons: { icon: "/favicon.svg" },
+  icons: { icon: `${basePath}/favicon.svg` },
 };
 
 export const viewport: Viewport = {

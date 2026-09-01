@@ -22,7 +22,9 @@ const nav = [
 ] as const;
 
 function navActive(pathname: string, href: string) {
-  return href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const path = pathname.replace(/\/$/, "") || "/";
+  const target = href.replace(/\/$/, "") || "/";
+  return target === "/" ? path === "/" : path === target || path.startsWith(`${target}/`);
 }
 
 export function AppShell({ children }: { children: ReactNode }) {
