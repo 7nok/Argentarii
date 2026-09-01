@@ -14,11 +14,11 @@ import {
 } from "@/components/icons";
 
 const nav = [
-  { href: "/", label: "Overview", icon: OverviewIcon },
-  { href: "/accounts", label: "Accounts", icon: AccountsIcon },
-  { href: "/transactions", label: "Activity", icon: ActivityIcon },
-  { href: "/bills", label: "Bills", icon: BillsIcon },
-  { href: "/budgets", label: "Budgets", icon: BudgetsIcon },
+  { href: "/", label: "Overview", short: "Home", icon: OverviewIcon },
+  { href: "/accounts", label: "Accounts", short: "Accounts", icon: AccountsIcon },
+  { href: "/transactions", label: "Activity", short: "Activity", icon: ActivityIcon },
+  { href: "/bills", label: "Bills", short: "Bills", icon: BillsIcon },
+  { href: "/budgets", label: "Budgets", short: "Budgets", icon: BudgetsIcon },
 ] as const;
 
 function navActive(pathname: string, href: string) {
@@ -50,10 +50,8 @@ export function AppShell({ children }: { children: ReactNode }) {
           })}
         </nav>
         <div className="rail-foot">
-          <p className="text-[11px] uppercase tracking-[0.16em] text-brass/80">Demo ledger</p>
-          <p className="mt-1 text-sm text-mist">
-            {demoMeta.personFirstName} · {demoMeta.monthLabel}
-          </p>
+          <p className="text-[11px] uppercase tracking-[0.16em] text-brass/80">Sample data</p>
+          <p className="mt-1 text-sm text-mist">{demoMeta.monthLabel}</p>
         </div>
       </aside>
 
@@ -72,7 +70,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             return (
               <Link key={item.href} href={item.href} className={active ? "tab active" : "tab"}>
                 <item.icon className="h-5 w-5" />
-                <span>{item.label}</span>
+                <span>{item.short}</span>
               </Link>
             );
           })}

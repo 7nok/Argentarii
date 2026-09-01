@@ -37,3 +37,10 @@ export function daysUntil(iso: string, asOf: string): number {
   const now = new Date(`${asOf}T12:00:00`).getTime();
   return Math.round((due - now) / 86_400_000);
 }
+
+export function formatDueIn(iso: string, asOf: string): string {
+  const wait = daysUntil(iso, asOf);
+  if (wait <= 0) return "due today";
+  if (wait === 1) return "tomorrow";
+  return `in ${wait} days`;
+}

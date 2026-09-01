@@ -13,7 +13,7 @@ export function AccountCard({ account, href }: { account: Account; href?: string
         <div>
           <p className="eyebrow">{account.institution}</p>
           <h3 className="font-serif text-[1.65rem] leading-none text-parchment">{account.name}</h3>
-          <p className="mt-2 text-sm text-mist">···· {account.last4}</p>
+          <p className="mt-2 text-sm text-mist">ending {account.last4}</p>
         </div>
         <p className="font-serif text-3xl tabular text-parchment">
           {formatMoney(account.balance)}

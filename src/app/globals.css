@@ -97,9 +97,8 @@ body::before {
   align-items: center;
   justify-content: space-between;
   padding: 0.85rem 1.1rem 0.75rem;
-  background: color-mix(in srgb, var(--color-ink) 88%, transparent);
+  background: var(--color-ink);
   border-bottom: 1px solid var(--color-line);
-  backdrop-filter: blur(12px);
 }
 
 .page-frame {
@@ -118,9 +117,8 @@ body::before {
   grid-template-columns: repeat(5, 1fr);
   gap: 0.15rem;
   padding: 0.45rem 0.4rem calc(0.45rem + env(safe-area-inset-bottom));
-  background: color-mix(in srgb, var(--color-ink-2) 94%, transparent);
+  background: var(--color-ink-2);
   border-top: 1px solid var(--color-line);
-  backdrop-filter: blur(14px);
 }
 
 .tab {
@@ -128,11 +126,12 @@ body::before {
   flex-direction: column;
   align-items: center;
   gap: 0.2rem;
-  padding: 0.35rem 0.15rem;
+  padding: 0.35rem 0.1rem;
   color: var(--color-mist);
   font-size: 0.62rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .tab.active {
@@ -233,6 +232,7 @@ body::before {
   background: transparent;
   color: var(--color-parchment);
   outline: none;
+  appearance: none;
 }
 
 .search-input::placeholder {

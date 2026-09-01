@@ -7,8 +7,19 @@ export function MarkIcon({ className }: IconProps) {
     <svg viewBox="0 0 32 32" className={className} aria-hidden="true">
       <circle cx="16" cy="16" r="14.25" fill="none" stroke="currentColor" strokeWidth="1.25" />
       <path
-        d="M10 21.5V10.5h3.1c2.7 0 4.4 1.45 4.4 3.7 0 1.55-.85 2.7-2.25 3.25L19.6 21.5h-2.55l-3.85-4.05H12.2V21.5H10Zm2.2-5.85h1.15c1.35 0 2.15-.7 2.15-1.8s-.8-1.75-2.15-1.75H12.2v3.55Z"
-        fill="currentColor"
+        d="M11 22.2 16 9.6 21 22.2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12.7 17.4h6.6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
       />
     </svg>
   );

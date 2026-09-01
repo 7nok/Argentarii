@@ -34,7 +34,8 @@ export function TransactionsView() {
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Search payee, memo, category"
           className="search-input"
-          type="search"
+          type="text"
+          autoComplete="off"
           aria-label="Search transactions"
         />
       </div>

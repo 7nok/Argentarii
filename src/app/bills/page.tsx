@@ -1,6 +1,6 @@
 import { demoMeta } from "@/data/demo";
 import { accountById, upcomingBills } from "@/lib/ledger";
-import { daysUntil, formatDate, formatMoney } from "@/lib/format";
+import { daysUntil, formatDate, formatDueIn, formatMoney } from "@/lib/format";
 import { CategoryPill, DemoBanner, Panel, SectionTitle } from "@/components/ui";
 
 export default function BillsPage() {
@@ -48,7 +48,6 @@ function BillGroup({
       <SectionTitle eyebrow={eyebrow} title={title} />
       <div className="space-y-3">
         {items.map((bill) => {
-          const wait = daysUntil(bill.nextDue, demoMeta.asOf);
           const account = accountById(bill.accountId);
           return (
             <article key={bill.id} className="panel">
@@ -65,8 +64,7 @@ function BillGroup({
               </div>
               <div className="mt-5 flex flex-wrap justify-between gap-2 border-t border-line pt-4 text-sm text-mist">
                 <p>
-                  Due {formatDate(bill.nextDue, "long")} ·{" "}
-                  {wait <= 0 ? "due now" : `${wait} days`}
+                  {formatDate(bill.nextDue, "long")} · {formatDueIn(bill.nextDue, demoMeta.asOf)}
                 </p>
                 {bill.lastPaid ? <p>Last posted {formatDate(bill.lastPaid)}</p> : <p>No prior sample payment</p>}
               </div>

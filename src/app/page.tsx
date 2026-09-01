@@ -8,7 +8,7 @@ import {
   recentActivity,
   upcomingBills,
 } from "@/lib/ledger";
-import { daysUntil, formatDate, formatMoney } from "@/lib/format";
+import { formatDate, formatDueIn, formatMoney } from "@/lib/format";
 import { AccountCard } from "@/components/AccountCard";
 import { CashFlowChart } from "@/components/CashFlowChart";
 import { DemoBanner, Money, Panel, SectionTitle } from "@/components/ui";
@@ -115,20 +115,17 @@ export default function OverviewPage() {
             }
           />
           <ul className="divide-y divide-line">
-            {bills.map((bill) => {
-              const wait = daysUntil(bill.nextDue, demoMeta.asOf);
-              return (
+            {bills.map((bill) => (
                 <li key={bill.id} className="flex items-center justify-between gap-3 py-3">
                   <div>
                     <p className="text-parchment">{bill.name}</p>
                     <p className="text-xs text-mist">
-                      {formatDate(bill.nextDue)} · {wait <= 0 ? "Due" : `${wait} days`}
+                      {formatDate(bill.nextDue)} · {formatDueIn(bill.nextDue, demoMeta.asOf)}
                     </p>
                   </div>
                   <Money amount={-bill.amount} />
                 </li>
-              );
-            })}
+              ))}
           </ul>
         </Panel>
         <Panel>
