@@ -45,6 +45,9 @@ jobs:
           path: ./out
 
   deploy:
+    # Pages is not enabled on this private repo yet. Skipping avoids a 404
+    # deploy failure until Settings → Pages → Source: GitHub Actions is on.
+    if: github.event.repository.has_pages
     needs: build
     runs-on: ubuntu-latest
     environment:

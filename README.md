@@ -20,7 +20,7 @@ To publish without making `7nok/Argentarii` public:
 
 Private-repo Pages requires GitHub Pro (or Team/Enterprise). If Settings → Pages is missing or refuses to enable on a private repo, that is a plan limit — leave the repo private.
 
-Until Pages is enabled, use local `npm run dev` or `npm run build:pages` (writes `out/`).
+Until Pages is enabled, use local `npm run dev` or `npm run build:pages` (writes `out/`). The Actions **build** job still runs; **deploy** is skipped until Pages is on.
 
 ## Run locally
 
