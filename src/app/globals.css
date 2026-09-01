@@ -1,0 +1,305 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+  --color-ink: #0b0c0a;
+  --color-ink-2: #12140f;
+  --color-panel: #181a14;
+  --color-panel-2: #20231b;
+  --color-line: #2c2f26;
+  --color-parchment: #ebe4d4;
+  --color-mist: #9b9384;
+  --color-brass: #c9b07a;
+  --color-brass-dim: #8c7548;
+  --color-sage: #8fa378;
+  --color-clay: #c8876e;
+}
+
+html {
+  background: #0b0c0a;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(201, 176, 122, 0.08), transparent 50%),
+    radial-gradient(900px 500px at 110% 10%, rgba(143, 163, 120, 0.06), transparent 46%),
+    #0b0c0a;
+  color: var(--color-parchment);
+  font-family: var(--font-sans);
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.09;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.eyebrow {
+  margin-bottom: 0.35rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-brass);
+}
+
+.panel {
+  border: 1px solid var(--color-line);
+  background: color-mix(in srgb, var(--color-panel) 88%, transparent);
+  border-radius: 1.15rem;
+  padding: 1.15rem 1.2rem;
+}
+
+.app-shell {
+  min-height: 100dvh;
+}
+
+.desktop-rail {
+  display: none;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.brand-sub {
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-mist);
+}
+
+.mobile-top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.1rem 0.75rem;
+  background: color-mix(in srgb, var(--color-ink) 88%, transparent);
+  border-bottom: 1px solid var(--color-line);
+  backdrop-filter: blur(12px);
+}
+
+.page-frame {
+  width: min(1080px, calc(100% - 1.6rem));
+  margin: 0 auto;
+  padding: 1.15rem 0 6.5rem;
+}
+
+.mobile-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.15rem;
+  padding: 0.45rem 0.4rem calc(0.45rem + env(safe-area-inset-bottom));
+  background: color-mix(in srgb, var(--color-ink-2) 94%, transparent);
+  border-top: 1px solid var(--color-line);
+  backdrop-filter: blur(14px);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.35rem 0.15rem;
+  color: var(--color-mist);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.tab.active {
+  color: var(--color-brass);
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 0.85rem;
+  color: var(--color-mist);
+  text-decoration: none;
+}
+
+.nav-link.active {
+  color: var(--color-parchment);
+  background: color-mix(in srgb, var(--color-brass) 12%, transparent);
+}
+
+.account-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  background: linear-gradient(180deg, var(--color-panel-2), var(--color-panel));
+  border-radius: 1.2rem;
+  padding: 1.25rem 1.2rem 1.15rem;
+}
+
+.account-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--color-brass);
+}
+
+.account-card.kind-checking::before {
+  background: var(--color-sage);
+}
+
+.account-card.kind-credit::before {
+  background: var(--color-clay);
+}
+
+.tx-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-line);
+}
+
+.tone-sage {
+  color: var(--color-sage);
+  border-color: color-mix(in srgb, var(--color-sage) 35%, transparent);
+}
+
+.tone-brass {
+  color: var(--color-brass);
+  border-color: color-mix(in srgb, var(--color-brass) 35%, transparent);
+}
+
+.tone-clay {
+  color: var(--color-clay);
+  border-color: color-mix(in srgb, var(--color-clay) 35%, transparent);
+}
+
+.tone-mist,
+.tone-parchment {
+  color: var(--color-mist);
+}
+
+.search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-panel);
+  border-radius: 999px;
+  padding: 0.7rem 0.95rem;
+}
+
+.search-input {
+  width: 100%;
+  background: transparent;
+  color: var(--color-parchment);
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--color-mist);
+}
+
+.chip {
+  flex: none;
+  border: 1px solid var(--color-line);
+  background: transparent;
+  color: var(--color-mist);
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+.chip.active {
+  color: var(--color-ink);
+  background: var(--color-brass);
+  border-color: var(--color-brass);
+}
+
+.split-bar {
+  display: flex;
+  height: 0.55rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--color-line);
+}
+
+@media (min-width: 1024px) {
+  .app-shell {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+
+  .desktop-rail {
+    display: flex;
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    flex-direction: column;
+    padding: 1.6rem 1.15rem 1.2rem;
+    border-right: 1px solid var(--color-line);
+    background: color-mix(in srgb, var(--color-ink-2) 80%, transparent);
+  }
+
+  .rail-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 2rem;
+  }
+
+  .rail-foot {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .mobile-top,
+  .mobile-nav {
+    display: none;
+  }
+
+  .page-frame {
+    width: min(1080px, calc(100% - 3.5rem));
+    padding: 2rem 0 3rem;
+  }
+}
