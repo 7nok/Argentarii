@@ -28,8 +28,12 @@ export function MarkIcon({ className }: IconProps) {
 export function OverviewIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="12" cy="12" r="8.25" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M12 8v4l2.8 1.6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M4.75 11.25 12 5.25l7.25 6V19a1.25 1.25 0 0 1-1.25 1.25h-3.5V15.5h-5.5v4.75h-3.5A1.25 1.25 0 0 1 4.75 19v-7.75Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
