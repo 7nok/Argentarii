@@ -1,10 +1,6 @@
 name: Deploy GitHub Pages
 
 # Publishes the static export to https://7nok.github.io/Argentarii/
-# once GitHub Pages is enabled for this private repo:
-# Settings → Pages → Build and deployment → Source: GitHub Actions
-# Do not change repository visibility. Enabling Pages does not make the source public.
-# After that setting is on, re-run this workflow (or push to this branch / main).
 
 on:
   push:
@@ -45,9 +41,6 @@ jobs:
           path: ./out
 
   deploy:
-    # Pages is not enabled on this private repo yet. Skipping avoids a 404
-    # deploy failure until Settings → Pages → Source: GitHub Actions is on.
-    if: github.event.repository.has_pages
     needs: build
     runs-on: ubuntu-latest
     environment:
